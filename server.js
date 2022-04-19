@@ -1,5 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/', (req,res) => {
@@ -7,7 +10,7 @@ app.get('/', (req,res) => {
 })
 
 app.post('/quotes',(req,res) => {
-    console.log('POST request received');
+    console.log(req.body);
 })
 
 
