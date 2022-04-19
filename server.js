@@ -3,13 +3,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017', (err, db) => {
-    if (err) {
-        return console.error('Unable to connect to MongoDB server, Error is: ', err);
-    }
-
-    console.log('Connected to MongoDB server');
-});
+MongoClient.connect('mongodb://localhost:27017')
+           .then((client) => console.log('Connected to MongoDB server'))
+           .catch((err) => console.error('Unable to connect to MongoDB server, Error is: ', err));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
