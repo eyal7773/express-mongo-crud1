@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eyal7773/express-mongo-crud1/issues"
   },
-  "homepage": "https://github.com/eyal7773/express-mongo-crud1#readme"
+  "homepage": "https://github.com/eyal7773/express-mongo-crud1#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
