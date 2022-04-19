@@ -3,9 +3,17 @@ const bodyParser = require('body-parser');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect('mongodb://localhost:27017')
-           .then((client) => console.log('Connected to MongoDB server'))
-           .catch((err) => console.error('Unable to connect to MongoDB server, Error is: ', err));
+
+async function connectToDb() {
+    try {
+        const client = await MongoClient.connect('mongodb://localhost:27017');
+        console.log('Connected to MongoDB server');
+    } catch (error) {
+        console.error('Unable to connect to MongoDB server, Error is: ', error);
+    }
+}
+        
+connectToDb();
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
