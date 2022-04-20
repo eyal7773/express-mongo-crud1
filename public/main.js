@@ -1,3 +1,4 @@
+
 const updateBtn = document.querySelector('#updateBtn');
 const achavQuote = {
     name:'אחאב',
@@ -34,5 +35,12 @@ deleteBtn.addEventListener('click', async () => {
     );
 
     let responseJson = await response.json();
-    console.log('(delete) response is ', responseJson);
+    if (responseJson === 'success') {
+        document.querySelector('#msg').innerText = 'Deleted successfully';
+    } 
+    else 
+    {
+        document.querySelector('#msg').innerText = responseJson;
+    }
+    
 });

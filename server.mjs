@@ -59,7 +59,10 @@ async function connectToDb() {
         res.json('success');
     });
 
-    
+    app.delete('/quotes', async (req,res) => {
+        await idiomsCollection.deleteOne({name: req.body.name});
+        res.json('success');
+    });
 
     app.listen(3000, () => {
         console.log('Server is listening on port 3000');
