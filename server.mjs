@@ -32,7 +32,9 @@ async function connectToDb() {
     app.use(bodyParser.urlencoded({ extended: true }));
 
 
-    app.get('/', (req,res) => {
+    app.get('/', async (req,res) => {
+        const idioms = await idiomsCollection.find().toArray();
+        console.log('idioms', idioms);
         res.sendFile(__dirname + '/index.html');
     })
 
