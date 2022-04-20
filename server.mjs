@@ -60,7 +60,10 @@ async function connectToDb() {
     });
 
     app.delete('/quotes', async (req,res) => {
-        await idiomsCollection.deleteOne({name: req.body.name});
+        const result = await idiomsCollection.deleteOne({name: req.body.name});
+        if (result.deletedCount !== 1) {
+            return res.json('These is no such quote');
+        }
         res.json('success');
     });
 
