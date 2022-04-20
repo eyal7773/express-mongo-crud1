@@ -35,7 +35,7 @@ async function connectToDb() {
 
     app.get('/', async (req,res) => {
         const idioms = await idiomsCollection.find().toArray();
-        console.log('idioms', idioms);
+        // console.log('idioms', idioms);
         // res.sendFile(__dirname + '/index.html');
         res.render('index',{quotes: idioms});
     })
@@ -59,6 +59,7 @@ async function connectToDb() {
         res.json('success');
     });
 
+    
 
     app.listen(3000, () => {
         console.log('Server is listening on port 3000');

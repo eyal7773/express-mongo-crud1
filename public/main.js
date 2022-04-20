@@ -22,3 +22,17 @@ updateBtn.addEventListener('click', async () => {
      * 
      */
 })
+
+const deleteBtn = document.querySelector('#deleteBtn');
+deleteBtn.addEventListener('click', async () => {
+    let response = await fetch('/quotes',
+            {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name:'אחאב'})
+            }
+    );
+
+    let responseJson = await response.json();
+    console.log('(delete) response is ', responseJson);
+});
