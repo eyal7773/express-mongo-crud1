@@ -47,7 +47,17 @@ async function connectToDb() {
     })
 
     app.put('/quotes', async (req,res) => {
-        console.log('req.body', req.body);
+        await idiomsCollection.findOneAndUpdate(
+                {name: 'הרצל'},
+                {$set: {    name: req.body.name,
+                            quote: req.body.quote
+                       }
+                },
+                {upsert: true});
+        // במקרה הזה עדיף לפי התקן לשים בצורה מפורשת הפניה 303
+        // כיוון שהתקן מעט שונה בין 302 ל-303
+        // https://stackoverflow.com/a/33215327/1598814
+        res.redirect(303,'/');
     });
 
 
