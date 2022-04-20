@@ -39,13 +39,7 @@ async function connectToDb() {
     app.post('/quotes',async (req,res) => {
         console.log(req.body);
         await idiomsCollection.insertOne(req.body);
-        /** אומנם נחזיר כאן תשובה תקינה
-         * אך מבחינת חויית משתמש - אנחנו מעבירים אותו 
-         * לדף אחר 
-         * זו בעיה, כי זה לא מה שהוא מצפה
-         * נפתור  זאת בהמשך.
-         */
-        res.status(200).send('OK');
+        res.redirect('/');
     })
 
 
