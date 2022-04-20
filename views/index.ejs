@@ -20,7 +20,24 @@
     </div>
     <hr>
     <div>
-        <%= quotes %>
+       <h2>Famous Quotes</h2>
+       <ul>
+           <% for (var i = 0; i < quotes.length; i++) { %>
+                <li>
+                    <span>
+                        <b>
+                            <%= quotes[i].name %>
+                        </b>
+                    </span>
+                    :
+                    <span>
+                        <i>
+                            <%= quotes[i].quote %>
+                        </i>
+                    </span>
+                </li>
+           <% } %>
+       </ul>
     </div>
 </body>
 </html>
