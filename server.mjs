@@ -35,7 +35,8 @@ async function connectToDb() {
     app.get('/', async (req,res) => {
         const idioms = await idiomsCollection.find().toArray();
         console.log('idioms', idioms);
-        res.sendFile(__dirname + '/index.html');
+        // res.sendFile(__dirname + '/index.html');
+        res.render('index',{});
     })
 
     app.post('/quotes',async (req,res) => {
