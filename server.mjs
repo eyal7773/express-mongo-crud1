@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
-
+app.use(bodyParser.json());
 
 async function connectToDb() {
     try {
@@ -45,6 +45,10 @@ async function connectToDb() {
         await idiomsCollection.insertOne(req.body);
         res.redirect('/');
     })
+
+    app.put('/quotes', async (req,res) => {
+        console.log('req.body', req.body);
+    });
 
 
     app.listen(3000, () => {
