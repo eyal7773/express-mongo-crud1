@@ -10,7 +10,7 @@ const __dirname = dirname(__filename);
 
 
 const app = express();
-
+app.set('view engine', 'ejs');
 
 
 async function connectToDb() {
